@@ -1,7 +1,3 @@
-# Task 7.2 – Inference Workflow
-# Triggered manually via workflow_dispatch
-# Runs inference.py with the provided input text
-
 name: Inference
 
 on:
