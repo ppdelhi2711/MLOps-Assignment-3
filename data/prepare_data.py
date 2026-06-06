@@ -42,7 +42,7 @@ def clean_text(text: str) -> str:
     text = text[: MAX_LENGTH * 4]                  
     return text
 
-print("\nCleaning text...")
+print("\nCleaning text")
 train_raw["text"] = train_raw["text"].apply(clean_text)
 test_raw["text"]  = test_raw["text"].apply(clean_text)
 
