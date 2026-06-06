@@ -96,7 +96,8 @@ model = AutoModelForSequenceClassification.from_pretrained(
 )
 
 # ── W&B init ──────────────────────────────────────────────────────────────────
-wandb.init(
+wandb.init( 
+entity="prateekpriyadarshi-iit-jodhpur",
     project=WB_PROJECT,
     name=f"run-{VERSION}",
     config={
