@@ -1,4 +1,4 @@
-## Data Cleaning & Normalisation, Select & Load a Model from Hugging Face, Train Multiple Versions on Kaggle & Track with W&B, Push Trained Model to Hugging Face Hub
+## Select & Load a Model from Hugging Face, Train Multiple Versions on Kaggle & Track with W&B, Push Trained Model to Hugging Face Hub
 
 import os
 import json
