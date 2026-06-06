@@ -10,7 +10,8 @@ Environment variables:
 
 import os
 import sys
-from transformers import pipeline
+import torch
+from transformers import AutoTokenizer, AutoModelForSequenceClassification
 from huggingface_hub import login
 
 # ── Auth ──────────────────────────────────────────────────────────────────────
@@ -31,18 +32,31 @@ print(f"Model  : {MODEL_REPO}")
 print(f"Input  : {input_text}")
 print("-" * 50)
 
-# ── Run inference ─────────────────────────────────────────────────────────────
-clf = pipeline(
-    task="text-classification",
-    model=MODEL_REPO,
-    tokenizer=MODEL_REPO,
+# ── Load model & tokenizer ────────────────────────────────────────────────────
+tokenizer = AutoTokenizer.from_pretrained(MODEL_REPO)
+model = AutoModelForSequenceClassification.from_pretrained(MODEL_REPO)
+model.eval()
+
+# ── Tokenise ──────────────────────────────────────────────────────────────────
+inputs = tokenizer(
+    input_text,
+    return_tensors="pt",
     truncation=True,
     max_length=128,
 )
+# DistilBERT does not use token_type_ids — remove it if present
+inputs.pop("token_type_ids", None)
 
-result = clf(input_text)[0]
+# ── Predict ───────────────────────────────────────────────────────────────────
+with torch.no_grad():
+    logits = model(**inputs).logits
 
-print(f"Label  : {result['label']}")
-print(f"Score  : {result['score']:.4f}")
+pred_id = logits.argmax(-1).item()
+score = torch.softmax(logits, dim=-1)[0][pred_id].item()
+label = model.config.id2label[pred_id]
+
+# ── Output ────────────────────────────────────────────────────────────────────
+print(f"Label  : {label}")
+print(f"Score  : {score:.4f}")
 print("-" * 50)
 print("Inference complete.")
