@@ -1,0 +1,36 @@
+# Task 7.2 – Inference Workflow
+# Triggered manually via workflow_dispatch
+# Runs inference.py with the provided input text
+
+name: Inference
+
+on:
+  workflow_dispatch:
+    inputs:
+      input_text:
+        description: "Text to classify (e.g. This movie was absolutely fantastic!)"
+        required: true
+        default: "This movie was absolutely fantastic!"
+
+jobs:
+  infer:
+    name: Run Inference
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Python 3.11
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Run inference
+        env:
+          HF_TOKEN:   ${{ secrets.HF_TOKEN }}
+          INPUT_TEXT: ${{ github.event.inputs.input_text }}
+        run: python src/inference.py
