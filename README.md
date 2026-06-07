@@ -12,11 +12,11 @@ automated through GitHub Actions.
 
 | Resource | URL |
 |---|---|
-| Kaggle Notebook v1 | _paste link here_ |
-| Kaggle Notebook v2 | _paste link here_ |
+| Kaggle Notebook v1 | https://www.kaggle.com/code/pp2026/notebook42d5048593 |
+| Kaggle Notebook v2 | https://www.kaggle.com/code/pp2026/notebook42d5048593 |
 | Hugging Face Model | https://huggingface.co/pp2711/imdb-distilbert-sentiment |
-| Docker Image | _paste link here_ |
-| W&B Dashboard | _paste link here_ |
+| Docker Image | https://hub.docker.com/r/prateek2711/mlops-a3-inference |
+| W&B Dashboard | https://wandb.ai/prateekpriyadarshi-iit-jodhpur/mlops-assignment3/reports/Untitled-Report--VmlldzoxNzE0MjU2OQ?accessToken=zj0lolabswazoq024ve6l50h58bypmpf982ncnzrwg59g90pmqg68xjjuy8czk55|
 
 ---
 
@@ -96,6 +96,6 @@ Add these in Settings → Secrets and Variables → Actions:
 
 | Name | Roll No | Contributions |
 |---|---|---|
-| Member 1 | — | Repo setup, GitHub Actions, Docker |
-| Member 2 | — | Data preparation, model selection |
-| Member 3 | — | Kaggle training, W&B tracking, HF push |
+| Prateek Priyadarshi | G25AIT2074  | Repo setup, GitHub Actions, Docker |
+| Jagadeesan D | G25AIT2042 | Data preparation, model selection |
+| Sumit | G25AIT2115 | Kaggle training, W&B tracking, HF push |
