@@ -52,7 +52,7 @@ pip install -r requirements.txt
 python data/prepare_data.py
 ```
 Outputs `data/train.csv`, `data/test.csv`, and `id2label.json`.
-> **Note:** Do not commit `train.csv` / `test.csv` — they are in `.gitignore`.
+
 
 ### 3. Train (Kaggle)
 Upload `src/train.py`, `data/train.csv`, `data/test.csv`, and `id2label.json`
