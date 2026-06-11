@@ -1,6 +1,5 @@
 # MLOps A3 — End-to-End MLOps Pipeline
 
-**IIT Jodhpur | PGD AI Program | MLOps Group Assignment**
 
 Binary sentiment classification on IMDb reviews using DistilBERT,
 containerised with Docker, trained on Kaggle, tracked via W&B, and
